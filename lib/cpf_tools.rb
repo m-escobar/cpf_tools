@@ -9,7 +9,7 @@ module CpfTools
       cpf = cpf.to_s if cpf.is_a? Integer
       tax_id = cpf.scan(/\d*/m).join
 
-      if tax_id.count('0') == 11 || tax_id.count('9') == 11
+      if invalid_repetition?(tax_id)
         false
       elsif tax_id.length == 11
         id_array = tax_id.split('').map(&:to_i)
@@ -24,6 +24,10 @@ module CpfTools
     end
 
     private
+    def invalid_repetition?(tax_id)
+      tax_id.count('0') == 11 || tax_id.count('9') == 11
+    end
+
     def id_multiplier(id)
       multiplier = id.length + 1
       tax_id_base = id.enum_for(:each_with_index).map { |x, idx| x * (multiplier - idx) }.inject(:+)
