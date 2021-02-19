@@ -42,13 +42,29 @@ If the string length is different from 11 (CPF standard length) an empty string 
 
 ### with_mask
 A string with default mask applied will be returned -> '###.###.###-##'
-    
+
     CpfTools.format('19906064072') => '199.060.640-72'
 
 ### digits_only
 A string with digits only will be returned.
-    
+
     CpfTools.format('199.060.640-72', format: :digits_only) => '19906064072'
+
+
+### CpfTools.return_valid (string)
+This method combines valid? and format and will return a formatted string if CPF is valid.
+
+If the string length is different from 11 (CPF standard length) or CPF isn't valid an empty string will be returned.
+
+### with_mask
+A string with default mask applied will be returned -> '###.###.###-##'
+
+    CpfTools.return_valid('19906064072') => '199.060.640-72'
+
+### digits_only
+A string with digits only will be returned.
+
+    CpfTools.return_valid('199.060.640-72', format: :digits_only) => '19906064072'
 
 
 ## Development

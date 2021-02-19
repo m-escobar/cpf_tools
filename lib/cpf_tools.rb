@@ -33,6 +33,10 @@ module CpfTools
       end
     end
 
+    def return_valid(cpf, format: :masked)
+      valid?(cpf) ? format(cpf, format: format) : ''
+    end
+
     private
     def cpf_to_s(cpf)
       cpf = cpf.to_s if cpf.is_a? Integer
