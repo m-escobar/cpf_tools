@@ -24,6 +24,7 @@ module CpfTools
 
     def format(cpf, format: :masked)
       tax_id = cpf_to_s(cpf)
+      return '' unless tax_id.length == 11
 
       if format == :digits_only
         tax_id

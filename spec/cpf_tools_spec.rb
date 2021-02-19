@@ -4,6 +4,7 @@ RSpec.describe CpfTools do
   let (:valid_cpf)   { '34001039001' }
   let (:invalid_cpf) { '34001039002' }
   let (:masked_cpf)  { '340.010.390-01' }
+  let (:integer_cpf) { 34001039001 }
 
   it 'has a version number' do
     expect(CpfTools::VERSION).not_to be nil
@@ -27,5 +28,15 @@ RSpec.describe CpfTools do
   it 'formated digits_only' do
     cpf = CpfTools.format(masked_cpf, format: :digits_only)
     expect(cpf).to eq(valid_cpf)
+  end
+
+  it 'format an integer' do
+    cpf = CpfTools.format(integer_cpf)
+    expect(cpf).to eq(masked_cpf)
+  end
+
+  it 'format only with 11 digits' do
+    cpf = CpfTools.format('340.010.390', format: :digits_only)
+    expect(cpf).to be_empty
   end
 end
