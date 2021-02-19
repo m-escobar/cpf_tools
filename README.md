@@ -1,8 +1,8 @@
-# CpfTools (WIP)
+# CpfTools
 
-This is a gem with tools to work with Brazilian Tax ID, know as CPF.
+This is a gem with tools to work with the Brazilian Tax ID, known as CPF.
 
-This gem will validate the number itself, not if CPF is valid at govern department of Receita Federal.
+This gem will validate the number itself, and not if CPF is valid at govern department of Receita Federal.
 
 ## Installation
 
@@ -22,29 +22,28 @@ Or install it yourself as:
 
 ## Usage
 
-## valid?
-Any non-digit character will be ignored and only number will be tested.
+### CpfTools.valid? (boolean)
+Any non-digit character will be ignored and only numbers will be tested.
 
-Number will be validate for length, invalid number repetitions, first and second verification digits.
+Tax ID number will be validate for length, invalid number repetitions, first and second verification digits.
 
-CpfTools.valid?('199.060.640-72')
-CpfTools.valid?('19906064072')
-CpfTools.valid?('199-060-640#72')
-CpfTools.valid?(19906064072)
-# true
+    CpfTools.valid?('199.060.640-72') => true
+    CpfTools.valid?('19906064072') => true
+    CpfTools.valid?('199-060-640#72') => true
+    CpfTools.valid?(19906064072) => true
 
-CpfTools.valid?('123.060.640-72')
-# false
+    CpfTools.valid?('123.060.640-72') => false
 
-## format
-# with_mask
+
+### CpfTools.format (string)
+Format the CPF accordingly with the parameters, no validation will be done.
+### with_mask
 A string with default mask applied will be returned -> '###.###.###-##'
-CpfTools.format('19906064072')
-# '199.060.640-72'
+    CpfTools.format('19906064072') => '199.060.640-72'
 
-# only_digits
+### digits_only
 A string with digits only will be returned.
-CpfTools.format('199.060.640-72', :only_digits)
+CpfTools.format('199.060.640-72', format: :only_digits)
 # '19906064072'
 
 
