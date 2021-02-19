@@ -39,4 +39,14 @@ RSpec.describe CpfTools do
     cpf = CpfTools.format('340.010.390', format: :digits_only)
     expect(cpf).to be_empty
   end
+
+  it 'return a masked cpf when valid' do
+    cpf = CpfTools.return_valid(valid_cpf)
+    expect(cpf).to eq(masked_cpf)
+  end
+
+  it 'return an empty string when cpf is invalid' do
+    cpf = CpfTools.return_valid(invalid_cpf)
+    expect(cpf).to be_empty
+  end
 end
