@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['mers.escobar@gmail.com']
 
   spec.summary       = 'Tools to work with the Brazilian Tax ID'
-  spec.description   = 'The Brazilian tax ID (CPF) validation and formatting, more functions to come'
+  spec.description   = 'The Brazilian Tax ID (CPF) validation and formatting, more functions to come'
   spec.homepage      = 'http://github.com/m-escobar/cpf_tools'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
