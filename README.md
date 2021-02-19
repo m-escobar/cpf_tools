@@ -39,12 +39,13 @@ Tax ID number will be validate for length, invalid number repetitions, first and
 Format the CPF accordingly with the parameters, no validation will be done.
 ### with_mask
 A string with default mask applied will be returned -> '###.###.###-##'
+    
     CpfTools.format('19906064072') => '199.060.640-72'
 
 ### digits_only
 A string with digits only will be returned.
-CpfTools.format('199.060.640-72', format: :only_digits)
-# '19906064072'
+    
+    CpfTools.format('199.060.640-72', format: :digits_only) => '19906064072'
 
 
 ## Development
