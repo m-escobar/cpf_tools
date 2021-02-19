@@ -6,8 +6,7 @@ module CpfTools
 
   class << self
     def valid?(cpf)
-      cpf = cpf.to_s if cpf.is_a? Integer
-      tax_id = cpf.scan(/\d*/m).join
+      tax_id = cpf_to_s(cpf)
 
       if invalid_repetition?(tax_id)
         false
@@ -23,7 +22,22 @@ module CpfTools
       end
     end
 
+    def format(cpf, format: :masked)
+      tax_id = cpf_to_s(cpf)
+
+      if format == :digits_only
+        tax_id
+      else
+        "#{tax_id[0..2]}.#{tax_id[3..5]}.#{tax_id[6..8]}-#{tax_id[9..10]}"
+      end
+    end
+
     private
+    def cpf_to_s(cpf)
+      cpf = cpf.to_s if cpf.is_a? Integer
+      cpf.scan(/\d*/m).join
+    end
+
     def invalid_repetition?(tax_id)
       tax_id.count('0') == 11 || tax_id.count('9') == 11
     end
