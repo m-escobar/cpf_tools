@@ -37,6 +37,9 @@ Tax ID number will be validate for length, invalid number repetitions, first and
 
 ### CpfTools.format (string)
 Format the CPF accordingly with the parameters, no validation will be done.
+
+If the string length is different from 11 (CPF standard length) an empty string will be returned.
+
 ### with_mask
 A string with default mask applied will be returned -> '###.###.###-##'
     
